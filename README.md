@@ -1,6 +1,7 @@
 # icmp_infra
 
-#prerequisite
+<b>Prerequisite</b>
+  
   1 - Packages to Install: Ansbile, Vagrant, Virtualbox and Python3
 
   2 - Generate and copy SSH key using "ssh-keygen" command and update "id_rsa.pub" file under `files` folder
