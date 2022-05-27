@@ -1,10 +1,9 @@
 ansible_python_interpreter: /usr/bin/python3
 
 #Packages:
-#GitClonePath: ~/home/icmp_infra
-GitClonePath: /Users/mkazmi/Documents/Code/icmp_infra
-MyGroup: mkazmi
-MyUser: staff
+GitClonePath: ~/home/icmp_infra
+MyGroup: YOUR-USER-GROUP-NAME
+MyUser: YOUR-USER-NAME
 
 #About Company
 Domain: iservermate.local
