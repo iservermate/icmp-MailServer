@@ -43,7 +43,8 @@
 
 	`ansible-playbook -i inventory/hosts iservermate.yml --tags initializedb --limit mailserver -e @variables.yml -b`
 
-`Step-7:` After successfully installation access mail server web interface using web browser  http://mail.YOU-DOMAIN-NAME. In this case 				
+`Step-7:` After successfully installation access mail server web interface using web browser  http://mail.YOU-DOMAIN-NAME. In this case
+
 	`http://mail.iservermate.local`
 
 `Step-8:`If Step-6 is working then ssh to mail server and  create any user for testing and login through same user through web browse
