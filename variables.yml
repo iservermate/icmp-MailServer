@@ -8,6 +8,7 @@ MyGroup: YOUR-USER-GROUP-NAME
 MyUser: YOUR-USER-NAME
 
 #About Company
+Company: iservermate
 Domain: iservermate.local
 VmName: mail
 Fqdn: mail.iservermate.local
