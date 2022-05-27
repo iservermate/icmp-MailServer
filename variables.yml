@@ -1,6 +1,8 @@
 ansible_python_interpreter: /usr/bin/python3
 
 #Packages:
+
+#For directory
 GitClonePath: ~/home/icmp_infra
 MyGroup: YOUR-USER-GROUP-NAME
 MyUser: YOUR-USER-NAME
@@ -13,7 +15,7 @@ Fqdn: mail.iservermate.local
 #Network
 Ip: 192.168.0.91
 WInterface: "en0: Wi-Fi" #Replace this variables as per your server interfaces.
-#LInterface: ""
+#LanInterface: ""
 Mynetworks: 192.168.0.0/24
 
 
