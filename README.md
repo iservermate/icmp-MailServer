@@ -61,5 +61,3 @@ Browse on Chrome and login through test user `http://mail.iservermate.local`
 1. Roundcube task is not idempodant. Create variable for Roundcube version number so the `roundcubeinstall` will be idempodant. 
 	
 2. Install and configure SSL certificate
-
->>>>>>> a4e79ec92cac20e1e90f2fcff1a68c843437e2e6
