@@ -1,0 +1,6 @@
+---
+  - name: "Create Virtual Host"
+    template:
+      src: Vagrantfile.j2
+      dest: "{{ GitClonePath }}/Vagrantfile"
+      mode: '0755'

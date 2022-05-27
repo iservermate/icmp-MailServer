@@ -1,5 +1,10 @@
 ---
 # tasks file for roles/postfix
+  - import_tasks: vagrantfile.yml
+    tags:
+      - never
+      - vagrantfile
+ 
   - import_tasks: packages.yml
     tags:
       - postfixpackages
