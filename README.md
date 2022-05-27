@@ -47,6 +47,7 @@
 	`http://mail.iservermate.local`
 
 `Step-8:`If Step-6 is working then ssh to mail server and  create any user for testing and login through same user through web browse
+	
 	`$ssh vagrant@mail.iservermate.local`
 	          
 	`$sudo useradd testuser`   #Creating user
