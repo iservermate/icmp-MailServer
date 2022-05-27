@@ -1,0 +1,7 @@
+---
+  - name: "Create iServermate Infra"
+    hosts: mailserver
+    become: true
+    gather_facts: on
+    roles:
+      - postfix

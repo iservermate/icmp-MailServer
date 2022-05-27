@@ -1,0 +1,22 @@
+---
+# defaults file for roles/postfix
+Packages:
+  - mariadb-server
+  - python3-PyMySQL
+  - postfix 
+  - mailx 
+  - dovecot 
+  - httpd 
+  - php 
+  - php-common 
+  - php-curl 
+  - php-json 
+  - php-xml 
+  - php-mbstring 
+  - php-mysqlnd 
+  - php-cli 
+  - php-gd
+  - php-intl 
+  - php-ldap 
+  - php-zip
+  - gcc

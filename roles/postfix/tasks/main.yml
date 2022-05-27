@@ -1,0 +1,29 @@
+---
+# tasks file for roles/postfix
+  - import_tasks: packages.yml
+    tags:
+      - postfixpackages
+
+  - import_tasks: postfix.yml
+    tags:
+      - postfixconfigs
+  
+  - import_tasks: dovcot.yml
+    tags:
+      - dovcotconfigs
+  
+  - import_tasks: mariadb.yml
+    tags:
+      - mariadb
+
+  - import_tasks: roundcube.yml
+    tags:
+      - roundcubeinstall
+
+  - import_tasks: virtualhost.yml
+    tags:
+      - rcubevirtualhost
+
+  - import_tasks: firewall.yml
+    tags:
+      - firewallrules

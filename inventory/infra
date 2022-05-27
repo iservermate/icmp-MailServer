@@ -1,0 +1,2 @@
+[mailserver]
+mail ansible_host=mail.iservermate.local

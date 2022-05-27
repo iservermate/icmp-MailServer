@@ -1,0 +1,11 @@
+---
+  - name: "Create Virtual Host"
+    template:
+      src: roundcubemail.conf.j2
+      dest: /etc/httpd/conf.d/roundcubemail.conf
+    notify: "httpd restart"
+
+
+
+
+  

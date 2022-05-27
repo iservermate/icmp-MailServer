@@ -1,0 +1,8 @@
+<VirtualHost *:80>
+  ServerAdmin admin@{{ Domain }}
+  ServerName {{ hostvars['mail'].ansible_host }}
+  DocumentRoot /var/www/html/roundcubemail 
+  <Directory /var/www/html/roundcubemail>
+      Allowoverride all
+  </Directory>
+</VirtualHost>

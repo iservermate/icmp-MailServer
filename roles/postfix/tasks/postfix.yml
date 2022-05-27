@@ -1,0 +1,52 @@
+---
+- name: "Update myhostname"
+  ansible.builtin.lineinfile:
+    path: /etc/postfix/main.cf
+    regexp: '^#myhostname = virtual.domain.tld'
+    line: myhostname = {{ hostvars['mail'].ansible_host }}
+    backup: true
+
+- name: "Update mydomain"
+  ansible.builtin.lineinfile:
+    path: /etc/postfix/main.cf
+    regexp: '^#mydomain = domain.tld'
+    line: mydomain = {{ Domain }}
+
+- name: "Update myorigin"
+  ansible.builtin.lineinfile:
+    path: /etc/postfix/main.cf
+    regexp: "^#myorigin = $myhostname"
+    line:  myorigin = $mydomain
+    state: present
+
+- name: "Update inet_interfaces"
+  ansible.builtin.lineinfile:
+    path: /etc/postfix/main.cf
+    regexp: '^inet_interfaces = localhost'
+    line: 'inet_interfaces = all'
+
+- name: "Update inet_protocols"
+  ansible.builtin.lineinfile:
+    path: /etc/postfix/main.cf
+    regexp: '^inet_protocols = all'
+    line: 'inet_protocols = ipv4'
+
+- name: "Update mydestination"
+  ansible.builtin.lineinfile:
+    path: /etc/postfix/main.cf
+    regexp: "^mydestination *=.*"
+    line: "mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain"
+    #backrefs: true
+
+- name: "Update mynetworks"
+  ansible.builtin.lineinfile:
+    path: /etc/postfix/main.cf
+    regexp: '^#mynetworks = hash:/etc/postfix/network_table'
+    line: 'mynetworks = {{ Mynetworks }}, 127.0.0.0/8'
+
+- name: "Update home_mailbox"
+  ansible.builtin.lineinfile:
+    path: /etc/postfix/main.cf
+    regexp: '^#home_mailbox = Maildir/'
+    line: 'home_mailbox = Maildir/'
+  notify: "postfix restart"

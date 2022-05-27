@@ -1,0 +1,30 @@
+---
+  - name: "Updating firewall rules for {{ item }}"
+    ansible.posix.firewalld:
+      service: "{{ item }}"
+      permanent: yes
+      state: enabled
+    loop:
+      - smtp
+      - http
+      - https
+      - mysql
+    tags: postfixfirewallrules
+
+  - name: "Add Dovecot ports to firewalld"
+    ansible.posix.firewalld:
+      port: "{{ item }}/tcp"
+      permanent: yes
+      state: enabled
+    loop:
+      - 110
+      - 995
+      - 143
+      - 993
+      - 587
+    tags: postfixports
+    notify: "firewall restart"
+
+  - name: Disable selinux
+    ansible.posix.selinux:
+      state: disabled

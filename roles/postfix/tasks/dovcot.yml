@@ -1,0 +1,39 @@
+---
+#Enable imap and pop3
+- name: "Add imap amd pop3 protocols"
+  lineinfile:
+    path: /etc/dovecot/dovecot.conf
+    regexp: "^# Protocols we want to be serving."
+    line: "protocols = imap pop3"
+    backup: true
+
+- name: "Adding directory to save emails"
+  lineinfile:
+    path: /etc/dovecot/dovecot.conf
+    regexp: "^#protocols = imap pop3 lmtp submission"
+    line: "mail_location = maildir:~/Maildir"
+
+#Configure Authentication Process:
+- name: "Enable User authentication"
+  lineinfile:
+    path: /etc/dovecot/conf.d/10-auth.conf
+    regexp: '^auth_mechanisms = plain'
+    line: "auth_mechanisms = plain login"
+    backup: true    
+
+- name: "Enable User authentication"
+  lineinfile:
+    path: /etc/dovecot/conf.d/10-mail.conf
+    line: mail_location = maildir:~/Maildir
+    backup: true
+
+- name: "Configure UNIX Socket for Postfix Authentication "
+  blockinfile:
+    path: /etc/dovecot/conf.d/10-master.conf
+    insertafter: "  unix_listener *auth-userdb {"
+    block: |
+          mode = 600
+          user = postfix
+          group = postfix
+    backup: true
+  notify: "dovecot restart"

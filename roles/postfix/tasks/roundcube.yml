@@ -1,0 +1,43 @@
+---
+  - name: "Download {{ db_user }}"
+    get_url:
+      url: "{{ Rcubefile }}"
+      dest: /tmp/roundcubemail.tar.gz
+
+  - name: "Create {{ db_name }} directory"
+    ansible.builtin.file:
+      path: /var/www/html/roundcubemail
+      state: directory
+
+  - name: "Unarchive to /var/www/html/ directory"
+    unarchive:
+      src: /tmp/roundcubemail.tar.gz
+      dest: /var/www/html/roundcubemail
+      remote_src: yes
+      extra_opts: [--strip-components=1]
+
+  - name: "Copy config.inc.php file"
+    template:
+      src: config.inc.php.j2
+      dest: /var/www/html/roundcubemail/config/config.inc.php
+  
+  - name: "Changing directory permissions"
+    ansible.builtin.file: 
+      path: /var/www/html/roundcubemail
+      state: directory
+      recurse: yes
+      owner: apache
+      group: apache
+      mode: 0766
+  
+  - name: Restore database
+    mysql_db:
+      name: "{{ db_name }}"
+      state: import
+      target: /var/www/html/roundcubemail/SQL/mysql.initial.sql
+    tags:
+      - never
+      - initializedb
+    notify: "mariadb restart"
+    ignore_errors: true
+
