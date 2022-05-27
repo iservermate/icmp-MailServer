@@ -1,6 +1,6 @@
 # icmp_infra
 
-<b>Prerequisite</b>
+Prerequisite
   
   1 - Packages to Install: Ansbile, Vagrant, Virtualbox and Python3
 
