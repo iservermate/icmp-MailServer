@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # icmp_infra
 `Note:` The code was tested on Macbook. To run it on widnows/linux server modify following
         This playbook install Postfix, Apache, Mysql and Roundcube. 
@@ -43,3 +44,6 @@
 `To-Do`
 	1. Roundcube task is not idempodant. Create variable for Roundcube version number so the `roundcubeinstall` will be idempodant. 
   2. Install and configure SSL certificate
+=======
+
+>>>>>>> a4e79ec92cac20e1e90f2fcff1a68c843437e2e6
