@@ -13,9 +13,6 @@
   
   2 - Add `DNS` entry for mail server ip (in this case `192.168.0.91` and FQDN is `mail.iservermate.local`) 
   
-  3 - Generate and copy SSH key using "ssh-keygen" command and update "id_rsa.pub" file under `files` folder 
-		
-	`ssh-keygen -t rsa`
   
 `Step-1:` Clone and navigate to git repo on your Host machine [Windows/Linux]
            
@@ -23,7 +20,9 @@
            
 	`$cd icmp_infra`
 
-`Step-2` - Add `DNS` entry for mail server ip (in this case `192.168.0.91` and FQDN is `mail.iservermate.local`) 
+`Step-2:` Generate and copy SSH key using "ssh-keygen" command and update "id_rsa.pub" file under `files` folder 
+		
+	`ssh-keygen -t rsa`
 
 `Step-3:` Modify variables in `variables.yml` file as per your requirement. 
 
