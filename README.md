@@ -5,8 +5,6 @@
         
 - This playbook install Postfix, Apache, Mysql and Roundcube. 
        
-- After installation and slight modification i.e. CIS benchmarks, Roundcube and Devecot configuration the VM can be promoted to Production.
-       
 - Need DNS to route traffic on internet and to manage MX record.  
 
 `Prerequisite:` 
