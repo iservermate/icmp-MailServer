@@ -11,11 +11,11 @@
   
   1 - Install packages on host machine `Ansbile, Vagrant, Virtualbox and Python3`
   
-  2 - Generate and copy SSH key using "ssh-keygen" command and update "id_rsa.pub" file under `files` folder 
+  2 - Add `DNS` entry for mail server ip (in this case `192.168.0.91` and FQDN is `mail.iservermate.local`) 
+  
+  3 - Generate and copy SSH key using "ssh-keygen" command and update "id_rsa.pub" file under `files` folder 
 		
 	`ssh-keygen -t rsa`
-		
-  4 - Add `DNS` entry for mail server ip (in this case `192.168.0.91` and FQDN is `mail.iservermate.local`) 
   
 `Step-1:` Clone and navigate to git repo on your Host machine [Windows/Linux]
            
@@ -23,29 +23,31 @@
            
 	`$cd icmp_infra`
 
-`Step-2:` Modify variables in `variables.yml` file as per your requirement. 
+`Step-2` - Add `DNS` entry for mail server ip (in this case `192.168.0.91` and FQDN is `mail.iservermate.local`) 
 
-`Step-3:` Modify ansible inventory file as per your requirements `cat icmp_infra/inventory/hosts`
+`Step-3:` Modify variables in `variables.yml` file as per your requirement. 
 
-`Step-4:` Create virtual machine using:
+`Step-4:` Modify ansible inventory file as per your requirements `cat icmp_infra/inventory/hosts`
+
+`Step-5:` Create virtual machine using:
            
 	`ansible-playbook -i inventory/hosts iservermate.yml --tags vagrantfile --limit localhost -e @variables.yml`
            
 	`vagrant up`
 
-`Step-5:` Automatically Install and configure Mail server.
+`Step-6:` Automatically Install and configure Mail server.
           
 	`ansible-playbook -i inventory/hosts iservermate.yml --limit mailserver -e @variables.yml -b`
 
-`Step-6:` Initialize Mysql database.
+`Step-7:` Initialize Mysql database.
 
 	`ansible-playbook -i inventory/hosts iservermate.yml --tags initializedb --limit mailserver -e @variables.yml -b`
 
-`Step-7:` After successfully installation access mail server web interface using web browser  http://mail.YOU-DOMAIN-NAME. In this case
+`Step-8:` After successfully installation access mail server web interface using web browser  http://mail.YOU-DOMAIN-NAME. In this case
 
 	`http://mail.iservermate.local`
 
-`Step-8:`If Step-6 is working then ssh to mail server and  create any user for testing and login through same user through web browse
+`Step-9:`If Step-6 is working then ssh to mail server and  create any user for testing and login through same user through web browse
 	
 	`$ssh vagrant@mail.iservermate.local`
 	          
