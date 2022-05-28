@@ -1,3 +1,5 @@
+#Note: Change variables based on your requirements. 
+
 ansible_python_interpreter: /usr/bin/python3
 
 #Packages:
@@ -7,7 +9,7 @@ GitClonePath: ~/home/icmp_infra
 MyGroup: YOUR-USER-GROUP-NAME
 MyUser: YOUR-USER-NAME
 
-#About Company
+#Company
 Company: iservermate
 Domain: iservermate.local
 VmName: mail
@@ -20,11 +22,11 @@ WInterface: "en0: Wi-Fi" #Replace this variables as per your server interfaces.
 Mynetworks: 192.168.0.0/24
 
 
-#Database credentials
+#Database
 mysql_root_password: password
 db_name: roundcubemail
 db_user: roundcube 
 db_pass: password
 
-#Roundcube file
+#Roundcube
 Rcubefile: https://github.com/roundcube/roundcubemail/releases/download/1.4.13/roundcubemail-1.4.13-complete.tar.gz
