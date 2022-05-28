@@ -18,13 +18,13 @@
   
 `Step-1:` Clone and navigate to git repo on your Host machine [Windows/Linux]
            
-	`$git clone https://github.com/iservermate/icmp_infra.git`
+	$git clone https://github.com/iservermate/icmp_infra.git
            
-	`$cd icmp_infra`
+	$cd icmp_infra
 
 `Step-2:` Generate and copy SSH key using "ssh-keygen" command and update "id_rsa.pub" file under `files` folder 
 		
-	`ssh-keygen -t rsa`
+	ssh-keygen -t rsa
 
 `Step-3:` Modify variables in `variables.yml` file as per your requirement. 
 
@@ -32,33 +32,33 @@
 
 `Step-5:` Create virtual machine using:
            
-	`ansible-playbook -i inventory/hosts iservermate.yml --tags vagrantfile --limit localhost -e @variables.yml`
+	ansible-playbook -i inventory/hosts iservermate.yml --tags vagrantfile --limit localhost -e @variables.yml
            
-	`vagrant up`
+	vagrant up
 
 `Step-6:` Automatically Install and configure Mail server.
           
-	`ansible-playbook -i inventory/hosts iservermate.yml --limit mailserver -e @variables.yml -b`
+	ansible-playbook -i inventory/hosts iservermate.yml --limit mailserver -e @variables.yml -b
 
 `Step-7:` Initialize Mysql database.
 
-	`ansible-playbook -i inventory/hosts iservermate.yml --tags initializedb --limit mailserver -e @variables.yml -b`
+	ansible-playbook -i inventory/hosts iservermate.yml --tags initializedb --limit mailserver -e @variables.yml -b
 
 `Step-8:` After successfully installation access mail server web interface using web browser  http://mail.YOU-DOMAIN-NAME. In this case
 
-	`http://mail.iservermate.local`
+	http://mail.iservermate.local
 
 `Step-9:`If Step-6 is working then ssh to mail server and  create any user for testing and login through same user through web browse
 	
-	`$ssh vagrant@mail.iservermate.local`
+	$ssh vagrant@mail.iservermate.local
 	          
-	`$sudo useradd testuser`   #Creating user
+	$sudo useradd testuser   #Creating user
         	  
-	`$sudo passwd testuser`    #Setting password for the user
+	$sudo passwd testuser    #Setting password for the user
 	          
 Browse on Chrome and login through test user `http://mail.iservermate.local`
 
-`Have Fun!!!`
+	Have Fun!!!
 
 `To-Do`
 1. Roundcube task is not idempodant. Create variable for Roundcube version number so the `roundcubeinstall` will be idempodant. 
