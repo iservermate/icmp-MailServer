@@ -13,6 +13,8 @@
   
   2 - Add `DNS` entry for mail server ip (in this case `192.168.0.91` and FQDN is `mail.iservermate.local`) 
   
+
+`Steps to host Mail server`
   
 `Step-1:` Clone and navigate to git repo on your Host machine [Windows/Linux]
            
