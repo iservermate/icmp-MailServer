@@ -15,7 +15,9 @@
   
 
 `Steps to host Mail server`
-  
+
+`Note:` Modify ansible inventory file and change localhost entry/group basd on your requirement
+
 `Step-1:` Clone and navigate to git repo on your Host machine [Windows/Linux]
            
 	$git clone https://github.com/iservermate/icmp_infra.git
